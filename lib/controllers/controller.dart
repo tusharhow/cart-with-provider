@@ -2,10 +2,16 @@ import 'package:flutter/widgets.dart';
 import '../models/product_model.dart';
 
 class ProductsController with ChangeNotifier {
-  List<ProductsModel> pList =<ProductsModel>[];
+  List<ProductsModel> pList = <ProductsModel>[];
 
-  addToCart(String image, String name,String price) {
-    pList.add(ProductsModel(image: image, name: name, price: price,),);
+  addToCart(String image, String name, String price) {
+    pList.add(
+      ProductsModel(
+        image: image,
+        name: name,
+        price: price,
+      ),
+    );
     notifyListeners();
   }
 

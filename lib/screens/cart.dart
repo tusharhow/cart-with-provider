@@ -37,6 +37,7 @@ class _CartScreenState extends State<CartScreen> {
                   height: screenSize.height,
                   width: double.infinity,
                   child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: value.pList.length,
                     itemBuilder: (context, index) {
                       return Dismissible(
@@ -48,18 +49,11 @@ class _CartScreenState extends State<CartScreen> {
                         onDismissed: (direction) {
                           value.deleteProduct(index);
                         },
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              CartItem(
-                                screenSize: screenSize,
-                                image: value.pList[index].image,
-                                itemName: value.pList[index].name,
-                                price: '\$${value.pList[index].price}',
-                              ),
-                            ],
-                          ),
+                        child: CartItem(
+                          screenSize: screenSize,
+                          image: value.pList[index].image,
+                          itemName: value.pList[index].name,
+                          price: '\$${value.pList[index].price}',
                         ),
                       );
                     },

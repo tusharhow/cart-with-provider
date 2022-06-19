@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../controllers/controller.dart';
 
 class ProductCard extends StatelessWidget {
@@ -64,15 +63,15 @@ class ProductCard extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.25,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.teal,
+                      ),
                       child: const Center(
                         child: Text(
                           "Add to Cart",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
                           ),
                         ),
                       )),

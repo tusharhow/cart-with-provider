@@ -1,3 +1,4 @@
+import 'package:add_to_cart_demo/data/data.dart';
 import 'package:add_to_cart_demo/screens/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,100 +55,33 @@ class _ProductScreenState extends State<ProductScreen> {
         title: const Center(
           child: Text(
             "eVally",
-            style: TextStyle(color: Colors.blue, fontSize: 25),
+            style: TextStyle(color: Colors.teal, fontSize: 25),
           ),
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: SizedBox(
-          height: size.height * 0.90,
-          child: GridView.builder(
-            scrollDirection: Axis.vertical,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 0.7,
-            ),
-            itemCount: prds.length,
-            itemBuilder: (context, index) => ProductCard(
-              image: prds[index]["image"].toString(),
-              itemName: prds[index]["name"].toString(),
-              price: prds[index]["price"].toString(),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: size.height * 0.90,
+            child: GridView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: prds.length,
+              itemBuilder: (context, index) => ProductCard(
+                image: prds[index]["image"].toString(),
+                itemName: prds[index]["name"].toString(),
+                price: prds[index]["price"].toString(),
+              ),
             ),
           ),
         ),
-      )),
+      ),
     );
   }
 }
-
-final prds = [
-  {
-    "name": "Orange",
-    "price": "100",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Chicken",
-    "price": "200",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Chocolate",
-    "price": "300",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Tea",
-    "price": "400",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Egg",
-    "price": "950",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Chanachur",
-    "price": "500",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "SADS",
-    "price": "680",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Pineapple",
-    "price": "750",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Salad",
-    "price": "350",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Orange",
-    "price": "472",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-  {
-    "name": "Apple",
-    "price": "555",
-    "image":
-        "https://thumbs.dreamstime.com/z/seasonal-delicious-sweet-apple-shop-display-i-captured-image-dhaka-bangladesh-199176503.jpg"
-  },
-];
